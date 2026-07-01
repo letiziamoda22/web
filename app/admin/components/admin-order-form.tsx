@@ -8,6 +8,16 @@ type Order = {
   paymentStatus: string;
   stripeSessionId?: string | null;
   paidAt?: string | null;
+  items?: Array<{
+    slug: string;
+    name: string;
+    color?: string;
+    description?: string;
+    category: string;
+    unitPrice: number;
+    quantity: number;
+    lineTotal: number;
+  }>;
   customer: {
     name: string;
     email: string;
@@ -75,6 +85,30 @@ export default function AdminOrderForm({ order, onSubmit, onClose }: Props) {
           Este estado se actualiza automáticamente desde Stripe y no se puede editar a mano.
         </p>
       </div>
+
+      {order.items && order.items.length > 0 && (
+        <div className="mb-4 rounded border border-[#e2ddd5] bg-[#fbfaf7] p-4">
+          <h4 className="mb-2 text-sm font-semibold uppercase tracking-[0.14em] text-[#6b6259]">
+            Productos del pedido
+          </h4>
+          <div className="space-y-2">
+            {order.items.map((item, index) => (
+              <div key={`${order.id}-${index}`} className="flex items-center justify-between gap-3 text-sm">
+                <div>
+                  <span className="block text-[#17130f]">
+                    {item.quantity}× {item.name}
+                    {item.color ? ` · ${item.color}` : ""}
+                  </span>
+                  {item.description && (
+                    <span className="mt-1 block text-xs text-[#6b6259]">{item.description}</span>
+                  )}
+                </div>
+                <span className="font-semibold text-[#d0513f]">${item.lineTotal.toFixed(2)}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
 
       <form className="space-y-4" onSubmit={handleSubmit}>
         <div>

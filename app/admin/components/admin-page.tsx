@@ -24,6 +24,8 @@ type Order = {
   items: Array<{
     slug: string;
     name: string;
+    color?: string;
+    description?: string;
     category: string;
     unitPrice: number;
     quantity: number;
@@ -47,6 +49,8 @@ type CustomerSection = {
   items: Array<{
     slug: string;
     name: string;
+    color?: string;
+    description?: string;
     category: string;
     unitPrice: number;
     quantity: number;

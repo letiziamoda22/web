@@ -19,6 +19,8 @@ type Order = {
   items: Array<{
     slug: string;
     name: string;
+    color?: string;
+    description?: string;
     category: string;
     unitPrice: number;
     quantity: number;
@@ -49,7 +51,7 @@ export default function AdminOrderTable({ orders, onSelect, onDelete }: Props) {
             <th className="px-4 py-3">Cliente</th>
             {showNif && <th className="px-4 py-3">NIF/CIF</th>}
             <th className="px-4 py-3">Email</th>
-            <th className="px-4 py-3">Items</th>
+            <th className="px-4 py-3">Productos</th>
             <th className="px-4 py-3">Total</th>
             <th className="px-4 py-3">Estado</th>
             <th className="px-4 py-3">Pago</th>
@@ -65,7 +67,17 @@ export default function AdminOrderTable({ orders, onSelect, onDelete }: Props) {
                 <td className="px-4 py-3">{order.customer.name}</td>
                 {showNif && <td className="px-4 py-3 text-xs">{order.customer.nif}</td>}
                 <td className="px-4 py-3 text-xs">{order.customer.email}</td>
-                <td className="px-4 py-3">{order.items.length}</td>
+                <td className="px-4 py-3">
+                  <div className="space-y-1">
+                    {order.items.map((item, index) => (
+                      <div key={`${order.id}-${index}`} className="text-xs text-[#17130f]">
+                        <span className="font-semibold">{item.quantity}× {item.name}</span>
+                        {item.color ? ` · ${item.color}` : ""}
+                        {item.description ? ` · ${item.description}` : ""}
+                      </div>
+                    ))}
+                  </div>
+                </td>
                 <td className="px-4 py-3 font-semibold text-[#d0513f]">${order.total.toFixed(2)}</td>
                 <td className="px-4 py-3">
                   <span className="rounded-full border border-[#d0513f] px-2 py-1 text-xs text-[#d0513f]">

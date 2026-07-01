@@ -149,6 +149,7 @@ export function CartClient({ products }: { products: Product[] }) {
       slug: item.slug,
       name: product.name,
       color: item.color,
+      description: product.description,
       category: product.category,
       unitPrice: priceToNumber(product.price),
       quantity: item.quantity,
