@@ -117,7 +117,7 @@ export async function POST(req: NextRequest) {
       line_items.push({
         price_data: {
           currency: 'eur',
-          product_data: { name: 'Infraestructura de pago (5%)' },
+          product_data: { name: 'Gastos de gestion (1,4% + 0,25€)' },
           unit_amount: Math.round(fee * 100),
         },
         quantity: 1,
