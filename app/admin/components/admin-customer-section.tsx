@@ -22,6 +22,8 @@ type Order = {
   items: Array<{
     slug: string;
     name: string;
+    color?: string;
+    description?: string;
     category: string;
     unitPrice: number;
     quantity: number;
@@ -45,6 +47,8 @@ type CustomerSection = {
   items: Array<{
     slug: string;
     name: string;
+    color?: string;
+    description?: string;
     category: string;
     unitPrice: number;
     quantity: number;
@@ -119,10 +123,14 @@ export default function AdminCustomerSection({
               ) : (
                 items.map((item) => (
                   <div
-                    key={item.slug}
+                    key={`${item.slug}::${item.color ?? ""}`}
                     className="flex items-center justify-between rounded border border-[#e2ddd5] bg-[#fbfaf7] px-4 py-3"
                   >
-                    <span className="text-sm text-[#17130f]">{item.name}</span>
+                    <span className="text-sm text-[#17130f]">
+                      {item.name}
+                      {item.color ? ` · ${item.color}` : ""}
+                      {item.description ? ` · ${item.description}` : ""}
+                    </span>
                     <div className="flex items-center gap-4 text-sm">
                       <span className="text-[#6b6259]">x{item.quantity}</span>
                       <span className="font-semibold text-[#d0513f]">${item.lineTotal.toFixed(2)}</span>

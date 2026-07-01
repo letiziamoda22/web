@@ -13,7 +13,7 @@ export type Order = {
   billingNif: string | null;
   paidAt: string | null;
   customer: { name: string; email: string; phone: string; notes: string; };
-  items: Array<{ slug: string; name: string; category: string; unitPrice: number; quantity: number; lineTotal: number; }>;
+  items: Array<{ slug: string; name: string; color?: string; description?: string; category: string; unitPrice: number; quantity: number; lineTotal: number; }>;
   total: number;
 };
 
@@ -151,6 +151,8 @@ export type CustomerSection = {
   items: Array<{
     slug: string;
     name: string;
+    color?: string;
+    description?: string;
     category: string;
     unitPrice: number;
     quantity: number;
@@ -189,17 +191,18 @@ export async function getOrdersGroupedByCustomer(): Promise<CustomerSection[]> {
       section.customer.phone = order.customer.phone;
     }
 
-    const itemsBySlug = new Map(section.items.map((item) => [item.slug, item]));
+    const itemsByKey = new Map(section.items.map((item) => [item.slug + "::" + (item.color ?? ""), item]));
 
     for (const item of order.items) {
-      const existing = itemsBySlug.get(item.slug);
+      const itemKey = item.slug + "::" + (item.color ?? "");
+      const existing = itemsByKey.get(itemKey);
 
       if (existing) {
         existing.quantity += item.quantity;
         existing.lineTotal += item.lineTotal;
       } else {
         const merged = { ...item };
-        itemsBySlug.set(item.slug, merged);
+        itemsByKey.set(itemKey, merged);
         section.items.push(merged);
       }
     }
