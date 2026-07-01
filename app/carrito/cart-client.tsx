@@ -284,7 +284,7 @@ export function CartClient({ products }: { products: Product[] }) {
               <span>${subtotal.toFixed(2)}</span>
             </div>
             <div className="flex items-center justify-between">
-              <span>Infraestructura de pago (1,4% + 0.25€)</span>
+              <span>Gastos de gestion (1,4% + 0.25€)</span>
               <span>${paymentFee.toFixed(2)}</span>
             </div>
             <div className="flex items-center justify-between">

@@ -1,7 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { stripe } from '@/lib/stripe';
-import { markOrderAsPaid } from '@/lib/orders-db';
-import { markMayoristaOrderAsPaid } from '@/lib/mayorista-db';
+import { markOrderAsPaid, getOrderById } from '@/lib/orders-db';
+import { markMayoristaOrderAsPaid, getMayoristaOrderById } from '@/lib/mayorista-db';
+import { sendPaidOrderEmail } from '@/lib/email';
 
 export const dynamic = 'force-dynamic';
 
@@ -23,8 +24,44 @@ export async function POST(req: NextRequest) {
 
     if (table === 'mayorista') {
       await markMayoristaOrderAsPaid(orderId, session.id, session.payment_intent);
+      const order = await getMayoristaOrderById(orderId);
+      if (order) {
+        await sendPaidOrderEmail({
+          order: {
+            id: order.id,
+            customer: order.customer,
+            items: order.items.map((item) => ({
+              name: item.name,
+              color: item.color,
+              description: item.description,
+              quantity: item.quantity,
+              lineTotal: item.lineTotal,
+            })),
+            total: order.total,
+          },
+          orderType: 'mayorista',
+        });
+      }
     } else {
       await markOrderAsPaid(orderId, session.id, session.payment_intent);
+      const order = await getOrderById(orderId);
+      if (order) {
+        await sendPaidOrderEmail({
+          order: {
+            id: order.id,
+            customer: order.customer,
+            items: order.items.map((item) => ({
+              name: item.name,
+              color: item.color,
+              description: item.description,
+              quantity: item.quantity,
+              lineTotal: item.lineTotal,
+            })),
+            total: order.total,
+          },
+          orderType: 'individual',
+        });
+      }
     }
   }
 
