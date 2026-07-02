@@ -20,6 +20,9 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: 'Teléfono no válido' }, { status: 400 });
   }
 
-  await updateUserProfile(session.user_id, phone, nifDni);
+  await updateUserProfile(session.user_id, {
+    phone,
+    nifDni,
+  });
   return NextResponse.json({ ok: true });
 }

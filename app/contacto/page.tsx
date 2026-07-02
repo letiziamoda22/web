@@ -203,7 +203,7 @@ export default function ContactPage() {
                 </button>
               </form>
             ) : (
-              <div className="mt-8 space-y-8">
+              <div className="mt-8 space-y-8 animate-fade-up">
                 <div className="rounded-lg border border-[#cfc7bd] bg-[#fbfaf7] p-6">
                   <h2 className="text-xl font-semibold">
                     Información de contacto
@@ -211,34 +211,47 @@ export default function ContactPage() {
 
                   <div className="mt-5 space-y-5 text-[#6b6259]">
                     <div>
-                      <p className="font-semibold text-[#17130f]">
-                        Domicilio
-                      </p>
-                      <p>Calle Astorga, local 1, 28947, Fuenlabrada, Madrid</p>
-                    </div>
-
-                    <div>
-                      <p className="font-semibold text-[#17130f]">
-                        Teléfono
-                      </p>
-                      <a
-                        href="tel:+34683495396"
-                        className="text-[#d0513f] hover:underline"
-                      >
-                        683 495 396
+                      <p className="font-semibold text-[#17130f]">Teléfono | +34683495396 </p>
+                      <a href="tel:+34683495396" className="mt-2 inline-flex items-center gap-3 rounded border border-[#e2ddd5] bg-white px-3 py-2 text-[#d0513f] transition hover:border-[#d0513f] hover:bg-[#fff8f5]">
+                        <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[#f7f3ee]">
+                          <Image src="/SM/whatsapp.png" alt="WhatsApp" width={26} height={26} className="object-contain" />
+                        </div>
+                        <span className="font-semibold">WhatsApp</span>
                       </a>
                     </div>
 
                     <div>
-                      <p className="font-semibold text-[#17130f]">
-                        Email
-                      </p>
-                      <a
-                        href="mailto:LETIZIAMODA22@GMAIL.COM"
-                        className="text-[#d0513f] hover:underline"
-                      >
-                        LETIZIAMODA22@GMAIL.COM
+                      <p className="font-semibold text-[#17130f]">Correo | letiziamoda22@gmail.com</p>
+                      <a href="mailto:letiziamoda22@gmail.com" className="mt-2 inline-flex items-center gap-3 rounded border border-[#e2ddd5] bg-white px-3 py-2 text-[#d0513f] transition hover:border-[#d0513f] hover:bg-[#fff8f5]">
+                        <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[#f7f3ee]">
+                          <Image src="/SM/sobre.png" alt="Correo" width={26} height={26} className="object-contain" />
+                        </div>
+                        <span className="font-semibold">Correo</span>
                       </a>
+                    </div>
+
+                    <div>
+                      <p className="font-semibold text-[#17130f]">Redes sociales</p>
+                      <div className="mt-3 flex flex-col gap-2">
+                        <a href="https://www.tiktok.com/@tanna.moda?is_from_webapp=1&sender_device=pc" target="_blank" rel="noreferrer" className="inline-flex items-center gap-3 rounded border border-[#e2ddd5] bg-white px-3 py-2 text-[#17130f] transition hover:border-[#d0513f] hover:bg-[#fff8f5]">
+                          <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[#f7f3ee]">
+                            <Image src="/SM/tik-tok.png" alt="TikTok" width={26} height={26} className="object-contain" />
+                          </div>
+                          <span className="font-semibold">TikTok</span>
+                        </a>
+                        <a href="https://www.instagram.com/tanna.moda.mayorista" target="_blank" rel="noreferrer" className="inline-flex items-center gap-3 rounded border border-[#e2ddd5] bg-white px-3 py-2 text-[#17130f] transition hover:border-[#d0513f] hover:bg-[#fff8f5]">
+                          <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[#f7f3ee]">
+                            <Image src="/SM/instagram.png" alt="Instagram" width={26} height={26} className="object-contain" />
+                          </div>
+                          <span className="font-semibold">Instagram</span>
+                        </a>
+                        <a href="https://www.facebook.com/profile.php?id=61590628979456" target="_blank" rel="noreferrer" className="inline-flex items-center gap-3 rounded border border-[#e2ddd5] bg-white px-3 py-2 text-[#17130f] transition hover:border-[#d0513f] hover:bg-[#fff8f5]">
+                          <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[#f7f3ee]">
+                            <Image src="/SM/facebook.png" alt="Facebook" width={26} height={26} className="object-contain" />
+                          </div>
+                          <span className="font-semibold">Facebook</span>
+                        </a>
+                      </div>
                     </div>
                   </div>
                 </div>

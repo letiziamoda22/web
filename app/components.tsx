@@ -99,7 +99,7 @@ export function SiteFooter() {
 
 export function ProductCard({ product }: { product: Product }) {
   return (
-    <article className="group border border-[#e2ddd5] bg-white shadow-[0_18px_60px_-45px_rgba(23,19,15,0.55)]">
+    <article className="group border border-[#e2ddd5] bg-white shadow-[0_18px_60px_-45px_rgba(23,19,15,0.55)] transition duration-500 hover:-translate-y-2 hover:shadow-[0_24px_70px_-35px_rgba(23,19,15,0.55)]">
       <Link href={`/producto/${product.slug}`} className="block">
         <div className="relative aspect-[3/4] overflow-hidden bg-[#ece8df]">
           <Image
@@ -139,7 +139,7 @@ export function PageShell({
   headerTheme?: HeaderTheme;
 }) {
   return (
-    <main className="min-h-screen bg-[#fbfaf7] text-[#17130f]">
+    <main className="min-h-screen bg-[#fbfaf7] text-[#17130f] animate-fade-in">
       <SiteHeader theme={headerTheme} />
       {children}
       <SiteFooter />
@@ -160,7 +160,7 @@ export function PageHero({
 }) {
   return (
     <section className="relative isolate h-[62svh] min-h-[520px] overflow-hidden bg-[#17130f] px-5 pb-12 pt-32 text-white sm:px-8 lg:pb-16">
-      <Image src={image} alt="" fill priority sizes="100vw" className="object-cover opacity-[0.62]" />
+      <Image src={image} alt="" fill priority sizes="100vw" className="object-cover opacity-[0.62] transition duration-700 hover:scale-[1.03]" />
       <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(15,13,10,0.9),rgba(15,13,10,0.34))]" />
       <div className="relative mx-auto flex h-full max-w-7xl flex-col justify-end">
         <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[#9ee8dd]">{eyebrow}</p>

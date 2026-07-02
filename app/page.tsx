@@ -1,5 +1,8 @@
+'use client';
+
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
 import { PageShell, ProductCard } from "./components";
 import { featuredProducts, lookbookProducts, products } from "@/lib/catalog";
 
@@ -14,6 +17,58 @@ const occasions = [
 ];
 
 export default function Home() {
+  const [email, setEmail] = useState("");
+  const [status, setStatus] = useState<{ type: "idle" | "success" | "error"; message: string }>({
+    type: "idle",
+    message: "",
+  });
+  const [submitting, setSubmitting] = useState(false);
+
+  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+
+    const trimmedEmail = email.trim();
+    if (!trimmedEmail) {
+      setStatus({ type: "error", message: "Introduce un email para pedir la selección." });
+      return;
+    }
+
+    setSubmitting(true);
+    setStatus({ type: "idle", message: "" });
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: "Solicitud desde la home",
+          contact: trimmedEmail,
+          message:
+            "El usuario ha solicitado que le seleccionemos tres looks para su próxima ocasión desde la home.",
+        }),
+      });
+
+      const data = await response.json().catch(() => ({}));
+
+      if (!response.ok) {
+        throw new Error(data?.error || "No se pudo enviar la solicitud.");
+      }
+
+      setEmail("");
+      setStatus({
+        type: "success",
+        message: "Gracias. Hemos recibido tu solicitud y nos pondremos en contacto pronto.",
+      });
+    } catch (error) {
+      setStatus({
+        type: "error",
+        message: error instanceof Error ? error.message : "No se pudo enviar la solicitud.",
+      });
+    } finally {
+      setSubmitting(false);
+    }
+  }
+
   return (
     <PageShell headerTheme="light">
       <section className="relative isolate min-h-[92svh] overflow-hidden bg-[#17130f] text-white">
@@ -162,21 +217,32 @@ export default function Home() {
           <h2 className="text-3xl font-semibold leading-tight sm:text-4xl">
             Quieres que elijamos tres looks para tu proxima ocasion?
           </h2>
-          <form className="grid gap-3 sm:grid-cols-[1fr_auto]">
+          <form onSubmit={handleSubmit} className="grid gap-3 sm:grid-cols-[1fr_auto]">
             <label className="sr-only" htmlFor="email">
               Email
             </label>
             <input
               id="email"
               type="email"
+              value={email}
+              onChange={(event) => setEmail(event.target.value)}
               placeholder="tu@email.com"
               className="min-h-12 border border-[#cfc7bd] bg-[#fbfaf7] px-4 text-base outline-none transition placeholder:text-[#81776e] focus:border-[#d0513f]"
             />
-            <button className="min-h-12 bg-[#d0513f] px-6 text-sm font-semibold text-white transition hover:bg-[#17130f]">
-              Pedir seleccion
+            <button
+              type="submit"
+              disabled={submitting}
+              className="min-h-12 bg-[#d0513f] px-6 text-sm font-semibold text-white transition hover:bg-[#17130f] disabled:cursor-not-allowed disabled:opacity-70"
+            >
+              {submitting ? "Enviando..." : "Pedir seleccion"}
             </button>
           </form>
         </div>
+        {status.message ? (
+          <p className={`mx-auto mt-4 max-w-7xl text-sm ${status.type === "success" ? "text-[#2d6b42]" : "text-[#a13a28]"}`}>
+            {status.message}
+          </p>
+        ) : null}
       </section>
     </PageShell>
   );
