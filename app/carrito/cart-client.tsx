@@ -17,7 +17,8 @@ type CustomerType = "anonimo" | "autonomo" | "empresa";
 
 
 const PAYMENT_FEE_RATE = 0.014;
-const DELIVERY_FEE = 15;
+const DELIVERY_FEE = 8.95;
+const FREE_SHIPPING_THRESHOLD = 500;
 const SHIPPING_TIME = 5;
 
 function priceToNumber(price: string) {
@@ -81,8 +82,10 @@ export function CartClient({ products }: { products: Product[] }) {
   );
 
   const paymentFee = Number((subtotal * PAYMENT_FEE_RATE + 0.25).toFixed(2));
-  const deliveryFee = cartProducts.length > 0 ? DELIVERY_FEE : 0;
+  const isFreeShipping = subtotal >= FREE_SHIPPING_THRESHOLD;
+  const deliveryFee = cartProducts.length > 0 ? (isFreeShipping ? 0 : DELIVERY_FEE) : 0;
   const total = Number((subtotal + paymentFee + deliveryFee).toFixed(2));
+  const remainingForFreeShipping = Math.max(0, FREE_SHIPPING_THRESHOLD - subtotal);
 
   function updateCart(nextCart: CartItem[]) {
     setStoredCart(nextCart);
@@ -275,27 +278,47 @@ export function CartClient({ products }: { products: Product[] }) {
               </p>
               <h2 className="mt-2 text-2xl font-semibold">Confirmar pedido</h2>
             </div>
-            <p className="text-2xl font-bold text-[#d0513f]">${total}</p>
+            <p className="text-2xl font-bold text-[#d0513f]">€{total}</p>
           </div>
 
           <div className="mt-4 space-y-1 border-b border-[#e2ddd5] pb-4 text-xs text-[#6b6259]">
             <div className="flex items-center justify-between">
               <span>Subtotal</span>
-              <span>${subtotal.toFixed(2)}</span>
+              <span>€{subtotal.toFixed(2)}</span>
             </div>
             <div className="flex items-center justify-between">
               <span>Gastos de gestion (1,4% + 0.25€)</span>
-              <span>${paymentFee.toFixed(2)}</span>
+              <span>€{paymentFee.toFixed(2)}</span>
             </div>
             <div className="flex items-center justify-between">
               <span>Entrega</span>
-              <span>${deliveryFee.toFixed(2)}</span>
+              <span>{deliveryFee === 0 ? "Gratis" : `€${deliveryFee.toFixed(2)}`}</span>
             </div>
             <div className="flex items-center justify-between">
               <span>Tiempo estimado de entrega</span>
               <span>{SHIPPING_TIME} Dias</span>
             </div>
           </div>
+
+          {cartProducts.length > 0 && (
+            <div
+              className={`mt-4 rounded-md border px-3 py-3 text-sm ${
+                isFreeShipping
+                  ? "border-[#4f9b63] bg-[#f3fbf5] text-[#2d6b42]"
+                  : "border-[#efb3a8] bg-[#fff4f1] text-[#a13a28]"
+              }`}
+            >
+              {isFreeShipping ? (
+                <p>
+                  <strong>¡Envío gratis!</strong> Ya cumples con el pedido mínimo de 500€.
+                </p>
+              ) : (
+                <p>
+                  <strong>Faltan {remainingForFreeShipping.toFixed(2)}€</strong> para disfrutar del envío gratis con pedidos de 500€ o más.
+                </p>
+              )}
+            </div>
+          )}
 
           {customerType !== "anonimo" && !authLoading && !user && (
             <div className="mt-5 border border-[#efb3a8] bg-[#fff4f1] px-4 py-3 text-sm text-[#a13a28]">

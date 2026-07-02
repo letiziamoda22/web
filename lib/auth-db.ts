@@ -116,6 +116,22 @@ export async function deleteSession(sessionId: string) {
 export async function deleteAllUserSessions(userId: number) {
   await sql`DELETE FROM sessions WHERE user_id = ${userId}`;
 }
-export async function updateUserProfile(userId: number, phone: string, nifDni: string) {
-  await sql`UPDATE users SET phone = ${phone}, nif_dni = ${nifDni.toUpperCase()} WHERE id = ${userId}`;
+export async function updateUserProfile(
+  userId: number,
+  updates: {
+    name?: string | null;
+    email?: string | null;
+    phone?: string | null;
+    nifDni?: string | null;
+  }
+) {
+  await sql`
+    UPDATE users
+    SET
+      name = ${updates.name ?? null},
+      email = ${updates.email ?? null},
+      phone = ${updates.phone ?? null},
+      nif_dni = ${updates.nifDni ? updates.nifDni.toUpperCase() : null}
+    WHERE id = ${userId}
+  `;
 }

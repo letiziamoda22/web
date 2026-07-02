@@ -51,6 +51,45 @@ function formatItems(items: PaidOrderEmailPayload["items"]) {
     .join("\n");
 }
 
+export async function sendAccountDeletionEmail({
+  name,
+  email,
+  phone,
+  nifDni,
+  userId,
+}: {
+  name: string;
+  email: string;
+  phone: string;
+  nifDni: string;
+  userId: number;
+}) {
+  if (!process.env.GMAIL_USER || !process.env.GMAIL_APP_PASSWORD) {
+    console.warn("GMAIL_USER/GMAIL_APP_PASSWORD not configured, skipping account deletion email");
+    return;
+  }
+
+  const subject = `Solicitud de eliminación de cuenta - ${name}`;
+  const text = [
+    `Solicitud de eliminación de cuenta en Tanna`,
+    `Usuario ID: ${userId}`,
+    `Nombre: ${name}`,
+    `Email: ${email}`,
+    `Teléfono: ${phone}`,
+    `NIF/CIF: ${nifDni}`,
+    "",
+    "Esta solicitud debe ser revisada y procesada por el equipo.",
+  ].join("\n");
+
+  await getTransporter().sendMail({
+    from: `Tanna Web <${process.env.GMAIL_USER}>`,
+    to: NOTIFY_EMAIL,
+    subject,
+    text,
+    html: `<h2>Solicitud de eliminación de cuenta</h2><p><strong>Usuario ID:</strong> ${userId}</p><p><strong>Nombre:</strong> ${name}</p><p><strong>Email:</strong> ${email}</p><p><strong>Teléfono:</strong> ${phone}</p><p><strong>NIF/CIF:</strong> ${nifDni}</p><p>Esta solicitud debe ser revisada y procesada por el equipo.</p>`,
+  });
+}
+
 export async function sendPaidOrderEmail({
   order,
   orderType,
