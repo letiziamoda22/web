@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import type { Product } from "@/lib/catalog";
 import { CartLink } from "./cart-link";
@@ -18,8 +19,13 @@ type HeaderTheme = "dark" | "light";
 export function SiteHeader({ theme = "dark" }: { theme?: HeaderTheme }) {
   const pathname = usePathname();
   const hideAuthControls = pathname === "/login" || pathname === "/registro";
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const isLight = theme === "light";
+
+  useEffect(() => {
+    setMenuOpen(false);
+  }, [pathname]);
 
   return (
     <header
@@ -29,36 +35,50 @@ export function SiteHeader({ theme = "dark" }: { theme?: HeaderTheme }) {
           : "border-white/20 bg-[#17130f]/76 text-white"
       }`}
     >
-      <nav className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 sm:px-8">
-        {/* Brand */}
+      <nav className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-3 px-5 py-4 sm:px-8">
         <Link href="/" className="text-base font-semibold uppercase tracking-[0.22em]">
           Tanna
         </Link>
 
-        {/* Center nav */}
+        <div className="flex items-center gap-3">
+          {!hideAuthControls && (
+            <div className="flex items-center gap-3">
+              <CartLink />
+              <AccountButton theme={theme} />
+            </div>
+          )}
+
+          <button
+            type="button"
+            aria-label="Abrir menú"
+            aria-expanded={menuOpen}
+            onClick={() => setMenuOpen((open) => !open)}
+            className={`flex h-10 w-10 items-center justify-center rounded border text-lg transition md:hidden ${
+              isLight
+                ? "border-[#d9d3ca] bg-white text-[#17130f]"
+                : "border-white/20 bg-white/10 text-white"
+            }`}
+          >
+            {menuOpen ? "×" : "☰"}
+          </button>
+        </div>
+
         <div
-          className={`hidden items-center gap-7 text-sm md:flex ${
-            isLight ? "text-[#17130f]/70" : "text-white/78"
-          }`}
+          className={`w-full items-center gap-7 text-sm md:flex ${
+            menuOpen ? "flex flex-col items-start py-2" : "hidden"
+          } ${isLight ? "text-[#17130f]/70" : "text-white/78"}`}
         >
           {navItems.map(([label, href]) => (
             <Link
               key={href}
-              className={isLight ? "transition hover:text-[#17130f]" : "transition hover:text-white"}
+              className={`w-full rounded px-2 py-2 transition ${isLight ? "hover:text-[#17130f]" : "hover:text-white"}`}
               href={href}
+              onClick={() => setMenuOpen(false)}
             >
               {label}
             </Link>
           ))}
         </div>
-
-        {/* Right cluster (cart + auth) */}
-        {!hideAuthControls && (
-          <div className="flex items-center gap-3">
-            <CartLink />
-            <AccountButton theme={theme} />
-          </div>
-        )}
       </nav>
     </header>
   );
