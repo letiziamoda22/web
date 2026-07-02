@@ -35,18 +35,43 @@ export function SiteHeader({ theme = "dark" }: { theme?: HeaderTheme }) {
           : "border-white/20 bg-[#17130f]/76 text-white"
       }`}
     >
-      <nav className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-3 px-5 py-4 sm:px-8">
+      <nav className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 sm:px-8">
+        {/* Brand */}
         <Link href="/" className="text-base font-semibold uppercase tracking-[0.22em]">
           Tanna
         </Link>
 
+        {/* Center nav (desktop only) */}
+        <div
+          className={`hidden items-center gap-7 text-sm md:flex ${
+            isLight ? "text-[#17130f]/70" : "text-white/78"
+          }`}
+        >
+          {navItems.map(([label, href]) => (
+            <Link
+              key={href}
+              className={isLight ? "transition hover:text-[#17130f]" : "transition hover:text-white"}
+              href={href}
+            >
+              {label}
+            </Link>
+          ))}
+        </div>
+
+        {/* Right cluster (cart + auth + mobile menu toggle) */}
         <div className="flex items-center gap-3">
           {!hideAuthControls && (
-            <div className="flex items-center gap-3">
+            <div className="hidden md:flex items-center gap-3">
               <CartLink />
               <AccountButton theme={theme} />
             </div>
           )}
+
+          {/* On mobile show cart and account as icons inside the toggle area, plus the menu button */}
+          <div className="flex items-center gap-3 md:hidden">
+            <CartLink />
+            <AccountButton theme={theme} />
+          </div>
 
           <button
             type="button"
@@ -63,21 +88,20 @@ export function SiteHeader({ theme = "dark" }: { theme?: HeaderTheme }) {
           </button>
         </div>
 
-        <div
-          className={`w-full items-center gap-7 text-sm md:flex ${
-            menuOpen ? "flex flex-col items-start py-2" : "hidden"
-          } ${isLight ? "text-[#17130f]/70" : "text-white/78"}`}
-        >
-          {navItems.map(([label, href]) => (
-            <Link
-              key={href}
-              className={`w-full rounded px-2 py-2 transition ${isLight ? "hover:text-[#17130f]" : "hover:text-white"}`}
-              href={href}
-              onClick={() => setMenuOpen(false)}
-            >
-              {label}
-            </Link>
-          ))}
+        {/* Mobile menu (only visible on small screens) */}
+        <div className={`w-full md:hidden ${menuOpen ? "block" : "hidden"}`}>
+          <div className="flex flex-col gap-1 py-2">
+            {navItems.map(([label, href]) => (
+              <Link
+                key={href}
+                href={href}
+                className={`block w-full rounded px-3 py-2 text-sm text-[#17130f] hover:bg-[#fbfaf7]`}
+                onClick={() => setMenuOpen(false)}
+              >
+                {label}
+              </Link>
+            ))}
+          </div>
         </div>
       </nav>
     </header>
@@ -109,7 +133,10 @@ export function SiteFooter() {
           Términos y Condiciones
         </Link>
         <Link href="/privacidad" className="underline-offset-4 hover:text-white hover:underline">
-          Politica de Privacidad
+          Política de Privacidad
+        </Link>
+        <Link href="/cookies" className="underline-offset-4 hover:text-white hover:underline">
+          Política de Cookies
         </Link>
         </div>
       </div>
