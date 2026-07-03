@@ -48,63 +48,35 @@ type ProductMeta = {
   colorNames?: Record<number, string>;
 };
 
-// [codigo, extension del archivo principal, cantidad de fotos "-N" en /public/fotos]
-const rawCodes: [string, string, number][] = [
-  ["KU1085", "png", 2],
-  ["KU1067","png", 6],
-  ["KU2157","png", 2],
-  ["KU2250","png", 4],
-  ["KU986","png", 4],
-  ["KU2147","png", 3],
-  ["SE5046","png", 8],
-  ["MC23702","png", 8],
-  ["MI9219","png", 2],
-  ["MI9185","png", 2],
-  ["MI7090","png", 4],
-  ["MI9198","png", 6],
-  ["M6901","png", 4],
-  ["M677431","png", 2],
-  ["M661891","png", 2],
-  ["M3537","png", 4],
-  ["MI9108","png", 3],
-  ["SE28949","png", 11],
-  ["CY3575","png", 6],
-
-  ["AL233", "png", 3],
-  ["AL235", "png", 6],
-  ["AL236", "png", 8],
-  ["BC1624", "png", 0],
-  ["CO1410", "jpg", 1],
-  ["CO3051", "jpg", 4],
-  ["CO7018", "png", 0],
-  ["MA9012", "png", 4],
-  ["MM239", "jpg", 9],
-  ["MM245", "png", 1],
-  ["MM2503", "png", 15],
-  ["MM259", "png", 10],
-  ["MM265", "png", 0],
-  ["MM285", "png", 2],
-  ["MM287", "jpg", 11],
-  ["MM289", "png", 3],
-  ["MM525", "png", 0],
-  ["MM701", "png", 8],
-  ["MM703", "png", 8],
-  ["PL1549", "png", 1],
-  ["PL1692", "png", 0],
-  ["PL2006", "png", 0],
-  ["PL2046", "png", 0],
-  ["PL2054", "png", 0],
-  ["PL2083", "png", 0],
-  ["PL3018", "png", 2],
-  ["RA10561", "png", 3],
-  ["SA1250", "png", 0],
-  ["SA25121", "jpg", 1],
-  ["SA26257", "png", 3],
-];
+import { rawCodes } from "./catalog.generated";
 
 // TODO: rellena nombre / precio / mood / fit / categoria / descripcion reales.
 // Si una de las fotos "-N" es otro color, agrega colorNames como en el ejemplo de arriba.
-const productMeta: Record<string, ProductMeta> = {
+const productMetaOverrides: Record<string, ProductMeta> = {
+  NW12:{name:"Vestido de tirante por capas",price:"€11,50",mood:"",fit:"Free Size",category:"Vestido",description:"NW12",colorNames:{0:"Amarillo"}},
+  M66158:{name:"Kimono largo solido",price:"€19,90",mood:"",fit:"Free Size",category:"Kimono",description:"M66158",colorNames:{0:"Marron",2:"Amarillo"}},
+  KU907:{name:"Vestido Largo multicolor",price:"€10,00",mood:"",fit:"Free Size",category:"Vestido",description:"KU907",colorNames:{0:"Multicolor"}},
+  KU897:{name:"Vestido corto con estampado",price:"€10,00",mood:"",fit:"Free Size",category:"Vestido corto",description:"KU897",colorNames:{0:"Azul",1:"Amarillo"}},
+  KU896:{name:"Vestido largo de tirantes",price:"€12,00",mood:"",fit:"Free Size",category:"Vestido",description:"KU896",colorNames:{0:"Amarillo",1:"Azul",2:"Rosa"}},
+  KU771:{name:"Vestido largo ondeado",price:"€12,00",mood:"",fit:"Free Size",category:"Vestido",description:"KU771",colorNames:{0:"amarillo",1:"Azul",2:"Rosa"}},
+  KU743:{name:"Vestido Largo con estampado",price:"€12,00",mood:"",fit:"Free Size",category:"Vestido",description:"KU743",colorNames:{0:"Blanco",1:"rojo"}},
+  KU680:{name:"Vestido corto con su toque",price:"€10,00",mood:"",fit:"Free Size",category:"Vestido corto",description:"KU680",colorNames:{0:"Verde",1:"Celeste",2:"Negro"}},
+  KU598:{name:"Vestido largo ondeado",price:"€12,00",mood:"",fit:"Free Size",category:"Vestido",description:"KU598",colorNames:{0:"amarillo",1:"naranja",2:"Blanco"}},
+  KU591:{name:"Vestido corto con estampado",price:"€10,00",mood:"",fit:"Free Size",category:"Vestido corto",description:"KU591",colorNames:{0:"Blanco"}},
+  KU3209:{name:"Vestido largo con estampado",price:"€12,00",mood:"",fit:"Free Size",category:"Vestido",description:"KU3209",colorNames:{0:"Naranja",3:"Blanco"}},
+  KU3206:{name:"Vestido largo con estampado",price:"€12,00",mood:"",fit:"Free Size",category:"Vestido",description:"KU3206",colorNames:{0:"Naranja",1:"Verde",2:"Negro",3:"Blanco"}},
+  KU3190:{name:"Vestido largo con estampado",price:"€12,00",mood:"",fit:"Free Size",category:"Vestido",description:"KU3190",colorNames:{0:"Negro",1:"Naranja",2:"Verde"}},
+  KU3144:{name:"vestido corto solido",price:"€10,00", mood:"", fit:"Free Size", category:"Vestido corto", description:"KU3144", colorNames:{0:"Amarillo",2:"Azul"}},
+  KU2285:{name:"Vestido largo con estampado", price:"€12,00", mood:"", fit:"Free Size", category:"Vestido", description:"KU2285", colorNames:{0:"Turquesa",1:"Amarillo",2:"Rosa"}},
+  KU2282: { name: "Vestido largo ondulado", price: "€12,00", mood: "", fit: "Free Size", category: "Vestido", description: "KU2282", colorNames: { 0: "Blanco" } },
+  KU2261: {name:"Vestido largo ondulado",price:"€10,00", mood:"", fit:"Free Size", category:"Vestido", description:"KU2261", colorNames:{0:"Blanco"}},
+  KU2257:{name:"Vestido largo solido",price:"€10,00", mood:"", fit:"Free Size", category:"Vestido", description:"KU2257", colorNames:{0:"Blanco"}},
+  KU2247: {name:"Vestido largo solido",price:"€10,00", mood:"", fit:"Free Size", category:"Vestido", description:"KU2247", colorNames:{0:"Azul"}},
+  KU2246:{name:"Vestido largo bordeado",price:"€12,00", mood:"", fit:"Free Size", category:"Vestido", description:"KU2246", colorNames:{0:"Azul",1:"camel"}},
+  KU2150:{name:"vestido corto con estampado", price:"€11,00", mood:"", fit:"Free Size", category:"Vestido corto", description:"KU2150", colorNames:{0:"Azul", 1:"Naranja"}},
+  KU2105: { name: "Vestido corto bordeado", price: "10,00", mood: "", fit: "Free Size", category: "Vestido", description: "KU2105", colorNames: { 0: "Blanco" } },
+  KU1805:{ name: "Vestido corto solido", price: "€9,90", mood: "", fit: "Free Size", category: "Vestido corto", description: "KU1805", colorNames: { 0:"Rosa", 1:"Verde", 2:"Azul", 3:"Naranja", 4:"Morado" } },
+  3172:{name:"vestido corto con lentejuelas", price:"€12,00", mood:"", fit:"Free Size", category:"Vestido corto", description:"3172", colorNames:{0:"Negro", 1:"Naranja", 2:"Blanco"}},
   KU1085: { name: "Vestido largo amarillo", price: "€12,00", mood: "", fit: "Free Size", category: "Vestido", description: "KU1085", colorNames: { 0: "Amarillo"} },
   KU1067: { name: "Vestido corto solido", price: "€10,00", mood: "", fit: "Free Size", category: "Vestido corto", description: "KU1067", colorNames: { 0: "Amarillo", 3: "azul", 5 : "azul oscuro" } },
   KU2157: { name: "Vestido corto bordeado", price: "€12,00", mood: "", fit: "Free Size", category: "Vestido", description: "KU2157", colorNames: { 0: "Blanco" } },
@@ -148,13 +120,21 @@ const productMeta: Record<string, ProductMeta> = {
   PL2006: { name: "blusa ligera solida", price: "€11,50", mood: "", fit:"Free Size", category: "Blusa", description: "PL2006", colorNames: { 0: "Verde" }  },
   PL2046: { name: "blusa ligera aireada", price: "€9,50", mood:  "", fit: "Free Size", category: "Blusa", description: "PL2046", colorNames: { 0: "Blanco" }  },
   PL2054: { name: "vestido largo con estampado", price: "€14,50", mood: "", fit:"Free Size", category: "Vestido", description: "PL2054", colorNames: { 0: "Morado" }  },
-  PL2083: { name: "vestido con estampado", price: "€14,50", mood: "", fit:"Free Size", category: "Vestido", description: "PL2083", colorNames: { 0: "verde" }  },
+  PL2083: { name: "vestido con estampado", price: "€14,50", mood: "", fit: "Free Size", category: "Vestido", description: "PL2083", colorNames: { 0: "verde" }  },
   PL3018: { name: "chaleco corto unicolor", price: "€13,50", mood: "", fit:"Free Size", category: "Vestido corto", description: "PL3018", colorNames: { 1: "Azul", 2: "Rosa" } },
   RA10561:{ name: "vestido lago flores", price: "€12,50", mood: "", fit: "Free Size", category: "Vestido", description: "RA10561", colorNames: { 0: "Rosa", 1: "Azul",2:"Naranja",3:"Verde" } } ,
   SA1250: { name: "vestido de tirantes ventilado por capas", price: "€12,50", mood: "", fit: "Free Size", category: "Vestido", description: "SA1250", colorNames: { 0: "Blanco"}  },
   SA25121:{ name: "mono con estampado", price: "€9,80", mood:"", fit:"Free Size", category: "Mono", description: "SA25121", colorNames: { 1: "Azul" }  },
   SA26257:{ name: "Vestido de tirantes con naturaleza", price: "€13,95", mood: "", fit: "Free Size", category: "Vestido", description: "SA26257", colorNames: { 0: "Naranja", 1: "Rosa",2:"Verde",3:"Azul" }  }
 };
+
+const productMeta: Record<string, ProductMeta> = { ...productMetaOverrides };
+for (const productEntry of rawCodes) {
+  const code = productEntry.code;
+  if (!productMeta[code]) {
+    productMeta[code] = { name: code, price: "", mood: "", fit: "Free Size", category: "Sin categoria", description: code };
+  }
+}
 
 function slugify(text: string) {
   return text
@@ -173,7 +153,7 @@ function buildGallery(code: string, mainExt: string, variantCount: number) {
   return gallery;
 }
 
-export const products: Product[] = rawCodes.map(([code, mainExt, variantCount], index) => {
+export const products: Product[] = rawCodes.map(({ code, mainExt, variantCount }, index) => {
   const meta = productMeta[code];
   const gallery = buildGallery(code, mainExt, variantCount);
 
@@ -183,7 +163,7 @@ export const products: Product[] = rawCodes.map(([code, mainExt, variantCount], 
     return { name: colorName, image };
   });
 
-  const baseSlug = slugify(meta.name);
+  const baseSlug = slugify(meta.description || meta.name);
 
   return {
     id: String(index + 1).padStart(2, "0"),

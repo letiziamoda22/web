@@ -119,6 +119,7 @@ export default function Home() {
 
       <section className="bg-[#fbfaf7] px-5 py-5 sm:px-8">
         <div className="mx-auto flex max-w-7xl gap-3 overflow-x-auto pb-2 text-sm font-medium text-[#17130f]">
+          <p className="shrink-0 text-[#d0513f]">Prendas perfectas para:</p>        
           {occasions.map((occasion) => (
             <span key={occasion} className="shrink-0 border border-[#d9d3ca] bg-white px-4 py-2">
               {occasion}
