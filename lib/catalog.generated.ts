@@ -4,367 +4,367 @@
 export const rawCodes = [
   {
     "code": "3172",
-    "mainExt": "png",
+    "mainExt": "webp",
     "variantCount": 2
   },
   {
     "code": "AL233",
-    "mainExt": "png",
+    "mainExt": "webp",
     "variantCount": 3
   },
   {
     "code": "AL235",
-    "mainExt": "png",
+    "mainExt": "webp",
     "variantCount": 6
   },
   {
     "code": "AL236",
-    "mainExt": "png",
+    "mainExt": "webp",
     "variantCount": 8
   },
   {
     "code": "BC1624",
-    "mainExt": "png",
+    "mainExt": "webp",
     "variantCount": 0
   },
   {
     "code": "CO1410",
-    "mainExt": "jpg",
+    "mainExt": "webp",
     "variantCount": 1
   },
   {
     "code": "CO3051",
-    "mainExt": "jpg",
+    "mainExt": "webp",
     "variantCount": 4
   },
   {
     "code": "CO7018",
-    "mainExt": "png",
+    "mainExt": "webp",
     "variantCount": 0
   },
   {
     "code": "CY3575",
-    "mainExt": "png",
+    "mainExt": "webp",
     "variantCount": 6
   },
   {
     "code": "KU1067",
-    "mainExt": "png",
+    "mainExt": "webp",
     "variantCount": 6
   },
   {
     "code": "KU1085",
-    "mainExt": "png",
+    "mainExt": "webp",
     "variantCount": 2
   },
   {
     "code": "KU1805",
-    "mainExt": "png",
+    "mainExt": "webp",
     "variantCount": 4
   },
   {
     "code": "KU2105",
-    "mainExt": "png",
+    "mainExt": "webp",
     "variantCount": 0
   },
   {
     "code": "KU2147",
-    "mainExt": "png",
+    "mainExt": "webp",
     "variantCount": 3
   },
   {
     "code": "KU2150",
-    "mainExt": "png",
+    "mainExt": "webp",
     "variantCount": 1
   },
   {
     "code": "KU2157",
-    "mainExt": "png",
+    "mainExt": "webp",
     "variantCount": 2
   },
   {
     "code": "KU2246",
-    "mainExt": "png",
+    "mainExt": "webp",
     "variantCount": 3
   },
   {
     "code": "KU2247",
-    "mainExt": "png",
+    "mainExt": "webp",
     "variantCount": 2
   },
   {
     "code": "KU2250",
-    "mainExt": "png",
+    "mainExt": "webp",
     "variantCount": 4
   },
   {
     "code": "KU2257",
-    "mainExt": "png",
+    "mainExt": "webp",
     "variantCount": 0
   },
   {
     "code": "KU2261",
-    "mainExt": "png",
+    "mainExt": "webp",
     "variantCount": 0
   },
   {
     "code": "KU2282",
-    "mainExt": "png",
+    "mainExt": "webp",
     "variantCount": 0
   },
   {
     "code": "KU2285",
-    "mainExt": "png",
+    "mainExt": "webp",
     "variantCount": 2
   },
   {
     "code": "KU3144",
-    "mainExt": "png",
+    "mainExt": "webp",
     "variantCount": 2
   },
   {
     "code": "KU3190",
-    "mainExt": "png",
+    "mainExt": "webp",
     "variantCount": 3
   },
   {
     "code": "KU3206",
-    "mainExt": "png",
+    "mainExt": "webp",
     "variantCount": 3
   },
   {
     "code": "KU3209",
-    "mainExt": "png",
+    "mainExt": "webp",
     "variantCount": 3
   },
   {
     "code": "KU591",
-    "mainExt": "png",
+    "mainExt": "webp",
     "variantCount": 0
   },
   {
     "code": "KU598",
-    "mainExt": "png",
+    "mainExt": "webp",
     "variantCount": 2
   },
   {
     "code": "KU680",
-    "mainExt": "png",
+    "mainExt": "webp",
     "variantCount": 2
   },
   {
     "code": "KU743",
-    "mainExt": "png",
+    "mainExt": "webp",
     "variantCount": 1
   },
   {
     "code": "KU771",
-    "mainExt": "png",
+    "mainExt": "webp",
     "variantCount": 4
   },
   {
     "code": "KU896",
-    "mainExt": "png",
+    "mainExt": "webp",
     "variantCount": 2
   },
   {
     "code": "KU897",
-    "mainExt": "png",
+    "mainExt": "webp",
     "variantCount": 1
   },
   {
     "code": "KU907",
-    "mainExt": "png",
+    "mainExt": "webp",
     "variantCount": 0
   },
   {
     "code": "KU986",
-    "mainExt": "png",
+    "mainExt": "webp",
     "variantCount": 4
   },
   {
     "code": "M3537",
-    "mainExt": "png",
+    "mainExt": "webp",
     "variantCount": 4
   },
   {
     "code": "M66158",
-    "mainExt": "png",
+    "mainExt": "webp",
     "variantCount": 4
   },
   {
     "code": "M661891",
-    "mainExt": "png",
+    "mainExt": "webp",
     "variantCount": 2
   },
   {
     "code": "M677431",
-    "mainExt": "png",
+    "mainExt": "webp",
     "variantCount": 2
   },
   {
     "code": "M6901",
-    "mainExt": "png",
+    "mainExt": "webp",
     "variantCount": 4
   },
   {
     "code": "MA9012",
-    "mainExt": "png",
+    "mainExt": "webp",
     "variantCount": 4
   },
   {
     "code": "MC23702",
-    "mainExt": "png",
+    "mainExt": "webp",
     "variantCount": 8
   },
   {
     "code": "MI7090",
-    "mainExt": "png",
+    "mainExt": "webp",
     "variantCount": 4
   },
   {
     "code": "MI9108",
-    "mainExt": "png",
+    "mainExt": "webp",
     "variantCount": 3
   },
   {
     "code": "MI9185",
-    "mainExt": "png",
+    "mainExt": "webp",
     "variantCount": 2
   },
   {
     "code": "MI9198",
-    "mainExt": "png",
+    "mainExt": "webp",
     "variantCount": 6
   },
   {
     "code": "MI9219",
-    "mainExt": "png",
+    "mainExt": "webp",
     "variantCount": 2
   },
   {
     "code": "MM239",
-    "mainExt": "jpg",
+    "mainExt": "webp",
     "variantCount": 9
   },
   {
     "code": "MM245",
-    "mainExt": "png",
+    "mainExt": "webp",
     "variantCount": 1
   },
   {
     "code": "MM2503",
-    "mainExt": "png",
+    "mainExt": "webp",
     "variantCount": 15
   },
   {
     "code": "MM259",
-    "mainExt": "png",
+    "mainExt": "webp",
     "variantCount": 10
   },
   {
     "code": "MM265",
-    "mainExt": "png",
+    "mainExt": "webp",
     "variantCount": 0
   },
   {
     "code": "MM285",
-    "mainExt": "png",
+    "mainExt": "webp",
     "variantCount": 2
   },
   {
     "code": "MM287",
-    "mainExt": "jpg",
+    "mainExt": "webp",
     "variantCount": 11
   },
   {
     "code": "MM289",
-    "mainExt": "png",
+    "mainExt": "webp",
     "variantCount": 3
   },
   {
     "code": "MM525",
-    "mainExt": "png",
+    "mainExt": "webp",
     "variantCount": 0
   },
   {
     "code": "MM701",
-    "mainExt": "png",
+    "mainExt": "webp",
     "variantCount": 8
   },
   {
     "code": "MM703",
-    "mainExt": "png",
+    "mainExt": "webp",
     "variantCount": 8
   },
   {
     "code": "NW12",
-    "mainExt": "png",
+    "mainExt": "webp",
     "variantCount": 0
   },
   {
     "code": "PL1549",
-    "mainExt": "png",
+    "mainExt": "webp",
     "variantCount": 1
   },
   {
     "code": "PL1692",
-    "mainExt": "png",
+    "mainExt": "webp",
     "variantCount": 0
   },
   {
     "code": "PL2006",
-    "mainExt": "png",
+    "mainExt": "webp",
     "variantCount": 0
   },
   {
     "code": "PL2046",
-    "mainExt": "png",
+    "mainExt": "webp",
     "variantCount": 0
   },
   {
     "code": "PL2054",
-    "mainExt": "png",
+    "mainExt": "webp",
     "variantCount": 0
   },
   {
     "code": "PL2083",
-    "mainExt": "png",
+    "mainExt": "webp",
     "variantCount": 0
   },
   {
     "code": "PL3018",
-    "mainExt": "png",
+    "mainExt": "webp",
     "variantCount": 2
   },
   {
     "code": "RA10561",
-    "mainExt": "png",
+    "mainExt": "webp",
     "variantCount": 3
   },
   {
     "code": "SA1250",
-    "mainExt": "png",
+    "mainExt": "webp",
     "variantCount": 0
   },
   {
     "code": "SA25121",
-    "mainExt": "jpg",
+    "mainExt": "webp",
     "variantCount": 1
   },
   {
     "code": "SA26257",
-    "mainExt": "png",
+    "mainExt": "webp",
     "variantCount": 3
   },
   {
     "code": "SE28949",
-    "mainExt": "png",
+    "mainExt": "webp",
     "variantCount": 11
   },
   {
     "code": "SE5046",
-    "mainExt": "png",
+    "mainExt": "webp",
     "variantCount": 8
   }
 ] as const;

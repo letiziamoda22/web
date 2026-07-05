@@ -53,36 +53,36 @@ import { rawCodes } from "./catalog.generated";
 // TODO: rellena nombre / precio / mood / fit / categoria / descripcion reales.
 // Si una de las fotos "-N" es otro color, agrega colorNames como en el ejemplo de arriba.
 const productMetaOverrides: Record<string, ProductMeta> = {
-  NW12:{name:"Vestido de tirante por capas",price:"€11,50",mood:"",fit:"Free Size",category:"Vestido",description:"NW12",colorNames:{0:"Amarillo"}},
-  M66158:{name:"Kimono largo solido",price:"€19,90",mood:"",fit:"Free Size",category:"Kimono",description:"M66158",colorNames:{0:"Marron",2:"Amarillo"}},
-  KU907:{name:"Vestido Largo multicolor",price:"€10,00",mood:"",fit:"Free Size",category:"Vestido",description:"KU907",colorNames:{0:"Multicolor"}},
-  KU897:{name:"Vestido corto con estampado",price:"€10,00",mood:"",fit:"Free Size",category:"Vestido corto",description:"KU897",colorNames:{0:"Azul",1:"Amarillo"}},
-  KU896:{name:"Vestido largo de tirantes",price:"€12,00",mood:"",fit:"Free Size",category:"Vestido",description:"KU896",colorNames:{0:"Amarillo",1:"Azul",2:"Rosa"}},
-  KU771:{name:"Vestido largo ondeado",price:"€12,00",mood:"",fit:"Free Size",category:"Vestido",description:"KU771",colorNames:{0:"amarillo",1:"Azul",2:"Rosa"}},
-  KU743:{name:"Vestido Largo con estampado",price:"€12,00",mood:"",fit:"Free Size",category:"Vestido",description:"KU743",colorNames:{0:"Blanco",1:"rojo"}},
-  KU680:{name:"Vestido corto con su toque",price:"€10,00",mood:"",fit:"Free Size",category:"Vestido corto",description:"KU680",colorNames:{0:"Verde",1:"Celeste",2:"Negro"}},
-  KU598:{name:"Vestido largo ondeado",price:"€12,00",mood:"",fit:"Free Size",category:"Vestido",description:"KU598",colorNames:{0:"amarillo",1:"naranja",2:"Blanco"}},
-  KU591:{name:"Vestido corto con estampado",price:"€10,00",mood:"",fit:"Free Size",category:"Vestido corto",description:"KU591",colorNames:{0:"Blanco"}},
-  KU3209:{name:"Vestido largo con estampado",price:"€12,00",mood:"",fit:"Free Size",category:"Vestido",description:"KU3209",colorNames:{0:"Naranja",3:"Blanco"}},
-  KU3206:{name:"Vestido largo con estampado",price:"€12,00",mood:"",fit:"Free Size",category:"Vestido",description:"KU3206",colorNames:{0:"Naranja",1:"Verde",2:"Negro",3:"Blanco"}},
-  KU3190:{name:"Vestido largo con estampado",price:"€12,00",mood:"",fit:"Free Size",category:"Vestido",description:"KU3190",colorNames:{0:"Negro",1:"Naranja",2:"Verde"}},
-  KU3144:{name:"vestido corto solido",price:"€10,00", mood:"", fit:"Free Size", category:"Vestido corto", description:"KU3144", colorNames:{0:"Amarillo",2:"Azul"}},
-  KU2285:{name:"Vestido largo con estampado", price:"€12,00", mood:"", fit:"Free Size", category:"Vestido", description:"KU2285", colorNames:{0:"Turquesa",1:"Amarillo",2:"Rosa"}},
+  NW12:   { name:"Vestido de tirante por capas",price:"€11,50",mood:"",fit:"Free Size",category:"Vestido",description:"NW12",colorNames:{0:"Amarillo"}},
+  M66158: { name:"Kimono largo solido",price:"€19,90",mood:"",fit:"Free Size",category:"Kimono",description:"M66158",colorNames:{0:"Marron",2:"Amarillo"}},
+  KU907:  { name:"Vestido Largo multicolor",price:"€10,00",mood:"",fit:"Free Size",category:"Vestido",description:"KU907",colorNames:{0:"Multicolor"}},
+  KU897:  { name:"Vestido corto con estampado",price:"€10,00",mood:"",fit:"Free Size",category:"Vestido corto",description:"KU897",colorNames:{0:"Azul",1:"Amarillo"}},
+  KU896:  { name:"Vestido largo de tirantes",price:"€12,00",mood:"",fit:"Free Size",category:"Vestido",description:"KU896",colorNames:{0:"Amarillo",1:"Azul",2:"Rosa"}},
+  KU771:  { name:"Vestido largo ondeado",price:"€12,00",mood:"",fit:"Free Size",category:"Vestido",description:"KU771",colorNames:{0:"amarillo",1:"Azul",2:"Rosa"}},
+  KU743:  { name:"Vestido Largo con estampado",price:"€12,00",mood:"",fit:"Free Size",category:"Vestido",description:"KU743",colorNames:{0:"Blanco",1:"rojo"}},
+  KU680:  { name:"Vestido corto con su toque",price:"€10,00",mood:"",fit:"Free Size",category:"Vestido corto",description:"KU680",colorNames:{0:"Verde",1:"Celeste",2:"Negro"}},
+  KU598:  { name:"Vestido largo ondeado",price:"€12,00",mood:"",fit:"Free Size",category:"Vestido",description:"KU598",colorNames:{0:"amarillo",1:"naranja",2:"Blanco"}},
+  KU591:  { name:"Vestido corto con estampado",price:"€10,00",mood:"",fit:"Free Size",category:"Vestido corto",description:"KU591",colorNames:{0:"Blanco"}},
+  KU3209: { name:"Vestido largo con estampado",price:"€12,00",mood:"",fit:"Free Size",category:"Vestido",description:"KU3209",colorNames:{0:"Naranja",3:"Blanco"}},
+  KU3206: { name:"Vestido largo con estampado",price:"€12,00",mood:"",fit:"Free Size",category:"Vestido",description:"KU3206",colorNames:{0:"Naranja",1:"Verde",2:"Negro",3:"Blanco"}},
+  KU3190: { name:"Vestido largo con estampado",price:"€12,00",mood:"",fit:"Free Size",category:"Vestido",description:"KU3190",colorNames:{0:"Negro",1:"Naranja",2:"Verde"}},
+  KU3144: { name:"vestido corto solido",price:"€10,00", mood:"", fit:"Free Size", category:"Vestido corto", description:"KU3144", colorNames:{0:"Amarillo",2:"Azul"}},
+  KU2285: { name:"Vestido largo con estampado", price:"€12,00", mood:"", fit:"Free Size", category:"Vestido", description:"KU2285", colorNames:{0:"Turquesa",1:"Amarillo",2:"Rosa"}},
   KU2282: { name: "Vestido largo ondulado", price: "€12,00", mood: "", fit: "Free Size", category: "Vestido", description: "KU2282", colorNames: { 0: "Blanco" } },
-  KU2261: {name:"Vestido largo ondulado",price:"€10,00", mood:"", fit:"Free Size", category:"Vestido", description:"KU2261", colorNames:{0:"Blanco"}},
-  KU2257:{name:"Vestido largo solido",price:"€10,00", mood:"", fit:"Free Size", category:"Vestido", description:"KU2257", colorNames:{0:"Blanco"}},
-  KU2247: {name:"Vestido largo solido",price:"€10,00", mood:"", fit:"Free Size", category:"Vestido", description:"KU2247", colorNames:{0:"Azul"}},
-  KU2246:{name:"Vestido largo bordeado",price:"€12,00", mood:"", fit:"Free Size", category:"Vestido", description:"KU2246", colorNames:{0:"Azul",1:"camel"}},
-  KU2150:{name:"vestido corto con estampado", price:"€11,00", mood:"", fit:"Free Size", category:"Vestido corto", description:"KU2150", colorNames:{0:"Azul", 1:"Naranja"}},
+  KU2261: { name:"Vestido largo ondulado",price:"€10,00", mood:"", fit:"Free Size", category:"Vestido", description:"KU2261", colorNames:{0:"Blanco"}},
+  KU2257: { name:"Vestido largo solido",price:"€10,00", mood:"", fit:"Free Size", category:"Vestido", description:"KU2257", colorNames:{0:"Blanco"}},
+  KU2247: { name:"Vestido largo solido",price:"€10,00", mood:"", fit:"Free Size", category:"Vestido", description:"KU2247", colorNames:{0:"Azul"}},
+  KU2246: { name:"Vestido largo bordeado",price:"€12,00", mood:"", fit:"Free Size", category:"Vestido", description:"KU2246", colorNames:{0:"Azul",1:"camel"}},
+  KU2150: { name:"vestido corto con estampado", price:"€11,00", mood:"", fit:"Free Size", category:"Vestido corto", description:"KU2150", colorNames:{0:"Azul", 1:"Naranja"}},
   KU2105: { name: "Vestido corto bordeado", price: "10,00", mood: "", fit: "Free Size", category: "Vestido", description: "KU2105", colorNames: { 0: "Blanco" } },
-  KU1805:{ name: "Vestido corto solido", price: "€9,90", mood: "", fit: "Free Size", category: "Vestido corto", description: "KU1805", colorNames: { 0:"Rosa", 1:"Verde", 2:"Azul", 3:"Naranja", 4:"Morado" } },
-  3172:{name:"vestido corto con lentejuelas", price:"€12,00", mood:"", fit:"Free Size", category:"Vestido corto", description:"3172", colorNames:{0:"Negro", 1:"Naranja", 2:"Blanco"}},
+  KU1805: { name: "Vestido corto solido", price: "€9,90", mood: "", fit: "Free Size", category: "Vestido corto", description: "KU1805", colorNames: { 0:"Rosa", 1:"Verde", 2:"Azul", 3:"Naranja", 4:"Morado" } },
+  3172:   { name:"vestido corto con lentejuelas", price:"€12,00", mood:"", fit:"Free Size", category:"Vestido corto", description:"3172", colorNames:{0:"Negro", 1:"Naranja", 2:"Blanco"}},
   KU1085: { name: "Vestido largo amarillo", price: "€12,00", mood: "", fit: "Free Size", category: "Vestido", description: "KU1085", colorNames: { 0: "Amarillo"} },
   KU1067: { name: "Vestido corto solido", price: "€10,00", mood: "", fit: "Free Size", category: "Vestido corto", description: "KU1067", colorNames: { 0: "Amarillo", 3: "azul", 5 : "azul oscuro" } },
   KU2157: { name: "Vestido corto bordeado", price: "€12,00", mood: "", fit: "Free Size", category: "Vestido", description: "KU2157", colorNames: { 0: "Blanco" } },
   KU2250: { name: "Vestido largo con flores", price: "€10,00", mood: "", fit: "Free Size", category: "Vestido corto", description: "KU2250", colorNames: { 0: "Amarillo", 3: "azul"} },
   KU986:  { name: "Vestido largo liso", price: "€10,00", mood: "", fit: "Free Size", category: "Vestido", description: "KU986", colorNames: { 0: "Azul", 3: "amarillo" } },
-  KU2147 :{ name: "Vestido corto con bordeado", price: "€10,00", mood: "", fit: "Free Size", category: "Vestido corto", description: "KU2147", colorNames: { 0: "blanco"} },
+  KU2147: { name: "Vestido corto con bordeado", price: "€10,00", mood: "", fit: "Free Size", category: "Vestido corto", description: "KU2147", colorNames: { 0: "blanco"} },
   SE5046: { name: "Vestido largo con liso", price: "€9,80", mood: "", fit: "Free Size", category: "Vestido", description: "SE5046", colorNames: { 0: "camel",3:"marron",5:"Rojo",7:"Amarillo"} },
   MC23702:{ name: "Vestido largo por capas", price: "€13,50", mood: "", fit: "Free Size", category: "Vestido corto", description: "MC23702", colorNames: { 0: "Marron", 3: "Verde",5:"Naranja",7:"Morado" } },
   MI9219: { name: "Vestido largo multicolor por capas", price: "€9,00", mood: "", fit: "Free Size", category: "Vestido", description: "MI9219", colorNames: { 0: "Multicolor" } },
@@ -132,7 +132,7 @@ const productMeta: Record<string, ProductMeta> = { ...productMetaOverrides };
 for (const productEntry of rawCodes) {
   const code = productEntry.code;
   if (!productMeta[code]) {
-    productMeta[code] = { name: code, price: "", mood: "", fit: "Free Size", category: "Sin categoria", description: code };
+    productMeta[code] = { name: code, price: "€20,00", mood: "", fit: "Free Size", category: "Sin categoria", description: code };
   }
 }
 
