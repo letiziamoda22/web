@@ -73,7 +73,7 @@ export default function Home() {
     <PageShell headerTheme="light">
       <section className="relative isolate min-h-[92svh] overflow-hidden bg-[#17130f] text-white">
         <Image
-          src="/fotos/MM245.png"
+          src="/fotos/MM245.webp"
           alt="Vestido estampado Tanna frente a escaparates de lujo"
           fill
           priority

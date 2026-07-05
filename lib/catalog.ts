@@ -159,7 +159,7 @@ export const products: Product[] = rawCodes.map(({ code, mainExt, variantCount }
 
   const colors: ColorOption[] = Object.entries(meta.colorNames ?? {}).map(([idxStr, colorName]) => {
     const idx = Number(idxStr);
-    const image = idx === 0 ? gallery[0] : `/fotos/${code}-${idx}.png`;
+    const image = idx === 0 ? gallery[0] : `/fotos/${code}-${idx}.webp`;
     return { name: colorName, image };
   });
 

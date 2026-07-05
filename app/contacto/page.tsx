@@ -270,7 +270,7 @@ export default function ContactPage() {
         {/* RIGHT: IMAGE */}
         <div className="relative min-h-[520px] overflow-hidden bg-[#ece8df] opacity-0 animate-[fadeInRight_0.9s_ease-out_forwards]">
           <Image
-            src="/fotos/MM245.png"
+            src="/fotos/MM245.webp"
             alt="Vestido verde Tanna"
             fill
             sizes="(max-width: 1024px) 100vw, 50vw"
