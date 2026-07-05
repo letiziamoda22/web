@@ -1,7 +1,7 @@
 # Tanna Moda — Documentación Técnica Completa
 
 **Empresa:** Chayne Moda y Complementos S.L. (NIF B67759969)  
-**Dominio:** tannamoda.vercel.app  
+**Dominio:** tannamoda.com
 **Stack:** Next.js 16 (App Router) · TypeScript · Tailwind CSS · Neon PostgreSQL · Stripe · Vercel
 
 ---
