@@ -14,10 +14,10 @@ body: (
 <> <p>
 En cumplimiento del Reglamento (UE) 2016/679 (RGPD), se informa que los datos
 personales recogidos a través del sitio web{" "} <a
-         href="https://tannamoda.vercel.app/"
+         href="https://tannamoda.com/"
          className="font-semibold text-[#d0513f] underline-offset-4 hover:underline"
        >
-https://tannamoda.vercel.app/ </a>{" "}
+https://tannamoda.com/ </a>{" "}
 serán tratados por: </p> <ul className="mt-4 space-y-1.5"> <li><span className="font-semibold text-[#17130f]">Razón social:</span> Chayne Moda y Complementos S.L.</li> <li><span className="font-semibold text-[#17130f]">NIF/CIF:</span> B67759969</li> <li><span className="font-semibold text-[#17130f]">Domicilio:</span> Calle Astorga, local 1, 28947, Fuenlabrada, Madrid, España</li> <li><span className="font-semibold text-[#17130f]">Teléfono:</span> 683 495 396</li> <li><span className="font-semibold text-[#17130f]">Email:</span> [letiziamoda22@gmail.com](mailto:letiziamoda22@gmail.com)</li> </ul>
 </>
 ),
