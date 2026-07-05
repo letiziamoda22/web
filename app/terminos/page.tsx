@@ -15,10 +15,10 @@ const sections = [
         <p>
           El presente sitio web{" "}
           <a
-            href="https://tannamoda.vercel.app/"
+            href="https://tannamoda.com/"
             className="font-semibold text-[#d0513f] underline-offset-4 hover:underline"
           >
-            https://tannamoda.vercel.app/
+            https://tannamoda.com/
           </a>{" "}
           (en adelante, &ldquo;el Sitio Web&rdquo; o &ldquo;la Plataforma&rdquo;) es titularidad de:
         </p>
