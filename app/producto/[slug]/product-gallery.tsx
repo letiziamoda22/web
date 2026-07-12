@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { useState } from "react";
 import type { ColorOption } from "@/lib/catalog";
 
 export function ProductGallery({
@@ -16,14 +17,32 @@ export function ProductGallery({
   index: number;
   onIndexChange: (index: number) => void;
 }) {
+  // Rastrear qué color sin imagen (image === null) está seleccionado.
+  // Se limpia automáticamente cuando el usuario elige un color con imagen.
+  const [selectedNullColor, setSelectedNullColor] = useState<string | null>(null);
+
   const goTo = (newIndex: number) => {
     const total = images.length;
     onIndexChange(((newIndex % total) + total) % total);
   };
 
-  const selectColor = (image: string) => {
-    const found = images.indexOf(image);
-    if (found !== -1) onIndexChange(found);
+  const handleColorClick = (option: ColorOption) => {
+    if (option.image === null) {
+      // Color sin foto: marca como activo sin cambiar la galería
+      setSelectedNullColor(option.name);
+    } else {
+      // Color con foto: cambia la galería y limpia la selección null
+      setSelectedNullColor(null);
+      const found = images.indexOf(option.image);
+      if (found !== -1) onIndexChange(found);
+    }
+  };
+
+  const isActive = (option: ColorOption): boolean => {
+    if (option.image === null) {
+      return selectedNullColor === option.name;
+    }
+    return images[index] === option.image;
   };
 
   return (
@@ -76,19 +95,23 @@ export function ProductGallery({
       {colors.length > 0 && (
         <div className="mt-4 flex flex-wrap gap-2">
           {colors.map((option) => {
-            const active = images[index] === option.image;
+            const active = isActive(option);
             return (
               <button
-                key={option.image}
+                key={option.name}
                 type="button"
-                onClick={() => selectColor(option.image)}
+                onClick={() => handleColorClick(option)}
+                title={option.image === null ? "Sin imagen disponible para este color" : undefined}
                 className={`border px-4 py-2 text-sm font-medium transition ${
                   active
                     ? "border-[#17130f] bg-[#17130f] text-white"
                     : "border-[#d9d3ca] bg-white hover:border-[#17130f]"
-                }`}
+                } ${option.image === null ? "opacity-70" : ""}`}
               >
                 {option.name}
+                {option.image === null && (
+                  <span className="ml-1.5 text-xs opacity-60">·</span>
+                )}
               </button>
             );
           })}
