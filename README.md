@@ -363,7 +363,7 @@ type Product = {
   gallery: string[];   // [foto principal, ...fotos extra]
   colors: ColorOption[]; // Solo las fotos marcadas como color real
   mood: string;
-  fit: string;         // "Free Size"
+  Talla: string;         // "Free Size"
   color: string;       // Color del primer colorOption
   category: string;    // "Vestido", "Kimono", "Falda", "Blusa", "Mono"
   description: string;
@@ -1273,7 +1273,7 @@ Antes de cambiar de modo test a modo live:
 | `[#ece8df]` | Beige claro | Fondo de imágenes de producto |
 | `[#e2ddd5]` | Borde beige | Bordes de cards y separadores |
 | `[#6b6259]` | Marrón medio | Texto secundario |
-| `[#7b7168]` | Marrón grisáceo | Texto de metadatos (fit, categoría) |
+| `[#7b7168]` | Marrón grisáceo | Texto de metadatos (Talla, categoría) |
 
 ### Estados de pedido
 
@@ -1533,7 +1533,7 @@ const productMeta: Record<string, ProductMeta> = {
     name: "Nombre de la prenda",
     price: "€14,90",
     mood: "",
-    fit: "Free Size",
+    Talla: "Free Size",
     category: "Vestido",  // Ver categorías existentes
     description: "Descripción breve",
     colorNames: {

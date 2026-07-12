@@ -48,7 +48,7 @@ export function CollectionBrowser({
         product.name,
         product.category,
         product.description,
-        product.fit,
+        product.Talla,
         ...product.colors.map((color) => color.name),
       ];
 

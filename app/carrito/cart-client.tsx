@@ -229,7 +229,7 @@ export function CartClient({ products }: { products: Product[] }) {
                     {item.color && (
                       <p className="mt-1 text-sm font-semibold text-[#17130f]">Color: {item.color}</p>
                     )}
-                    <p className="mt-2 text-sm text-[#6b6259]">{product.fit}</p>
+                    <p className="mt-2 text-sm text-[#6b6259]">{product.Talla}</p>
                     <button
                       type="button"
                       onClick={() => removeItem(item.slug, item.color)}

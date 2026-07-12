@@ -41,10 +41,7 @@ export default function LookbookPage() {
                 />
 
                 <div className="absolute inset-x-0 bottom-0 bg-[linear-gradient(0deg,rgba(23,19,15,0.82),rgba(23,19,15,0))] p-5 pt-24 text-white transition duration-500 group-hover:translate-y-[-4px]">
-                  <p className="text-xs uppercase tracking-[0.24em] text-white/68">
-                    {product.mood}
-                  </p>
-                  <h2 className="mt-3 text-2xl font-semibold">
+                  <h2 className="text-2xl font-semibold">
                     {product.name}
                   </h2>
                 </div>

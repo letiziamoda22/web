@@ -195,11 +195,7 @@ export default function Home() {
 
                 {/* Overlay editorial claro (optimizado para texto negro) */}
                 <div className="absolute inset-x-0 bottom-0 bg-[linear-gradient(0deg,rgba(236,232,223,0.95),rgba(236,232,223,0))] p-5 pt-24 text-black">
-                  <p className="text-sm uppercase tracking-[0.24em] text-black/60">
-                    {product.mood}
-                  </p>
-
-                  <h3 className="mt-3 text-2xl font-semibold leading-tight">
+                  <h3 className="text-2xl font-semibold leading-tight">
                     {product.name}
                   </h3>
                 </div>

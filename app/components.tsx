@@ -162,7 +162,7 @@ export function ProductCard({ product }: { product: Product }) {
         <div className="flex items-start justify-between gap-3">
           <div>
             <h3 className="text-lg font-semibold">{product.name}</h3>
-            <p className="mt-1 text-sm text-[#7b7168]">{product.fit}</p>
+            <p className="mt-1 text-sm text-[#7b7168]">{product.Talla}</p>
           </div>
           <span className="text-sm font-bold text-[#d0513f]">{product.price}</span>
         </div>
