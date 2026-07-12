@@ -71,7 +71,7 @@ export function ProductPurchasePanel({ product }: { product: Product }) {
           {product.name}
         </h1>
         <div className="mt-5 flex flex-wrap gap-3 text-sm font-medium">
-          <span className="border border-[#d9d3ca] bg-white px-4 py-2">{product.fit}</span>
+          <span className="border border-[#d9d3ca] bg-white px-4 py-2">{product.Talla}</span>
         </div>
         <p className="mt-8 text-xl font-bold text-[#d0513f]">{product.price}</p>
         <p className="mt-5 max-w-xl text-lg leading-8 text-[#6b6259]">{product.description}</p>

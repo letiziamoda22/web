@@ -47,7 +47,7 @@ Read the relevant reference file before answering any integration question or wr
 
 ## Key documentation
 
-When the user’s request does not clearly fit a single domain above, consult:
+When the user’s request does not clearly Talla a single domain above, consult:
 
 - [Integration Options](https://docs.stripe.com/payments/payment-methods/integration-options.md) — Start here when designing any integration.
 - [API Tour](https://docs.stripe.com/payments-api/tour.md) — Overview of Stripe’s API surface.
